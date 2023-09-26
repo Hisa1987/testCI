@@ -1,7 +1,7 @@
-FROM centos:7.9.2009
+FROM ubuntu:latest
 
-RUN yum update -y
-RUN yum install -y python-pip python-dev build-essential
+RUN apt-get update -y
+RUN apt-get install -y python-pip python-dev build-essential
 
 WORKDIR /app
 
