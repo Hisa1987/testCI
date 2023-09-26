@@ -1,16 +1,13 @@
-FROM ubuntu:latest
-
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
+FROM python:3.9
 
 WORKDIR /app
 
-COPY . .
+RUN pip install flask
 
-RUN pip install -r requirements.txt
+RUN pip install flask_sqlalchemy
+
+COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT ['python']
-
-CMD ['app.py']
+CMD ["python", "app.py"]
