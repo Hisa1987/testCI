@@ -1,7 +1,7 @@
-FROM ubuntu:20.04
+FROM centos:latest
 
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
+RUN yum update -y
+RUN yum install -y python-pip python-dev build-essential
 
 WORKDIR /app
 
