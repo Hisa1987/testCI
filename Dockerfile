@@ -1,10 +1,10 @@
-FROM python:3.9.18-slim-bullseye
+FROM python:3.9
 
 WORKDIR /app
 
-RUN pip install flask
+RUN pip3 install flask
 
-RUN pip install flask_sqlalchemy
+RUN pip3 install flask_sqlalchemy
 
 COPY . .
 
