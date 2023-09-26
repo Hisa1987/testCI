@@ -4,11 +4,15 @@ stages:
 
 build:
   stage: build
+  tags:
+    - docker
   script:
     - docker build -t test:${CI_COMMIT_SHORT_SHA} .
 
 test:
   stage: test
+  tags:
+    - shell
   script:
     - docker run -d -p 5000:5000 test:${CI_COMMIT_SHORT_SHA}
     - sleep 5 # Подождите, чтобы контейнер успел запуститься
