@@ -1,0 +1,15 @@
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t myproject -f Dockerfile .
+    - docker run myproject npm install
+    - docker run myproject npm run build
+  only:
+    - master
