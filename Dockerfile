@@ -1,17 +1,16 @@
-FROM python:3.8
+FROM ubuntu:latest
+
+RUN apt-get update -y
+RUN apt-get install -y python-pip python-dev build-essential
 
 WORKDIR /app
 
-#COPY requirements.txt .
-
-#RUN pip install -r requirements.txt
-
-RUN pip3 install flask
-
-RUN pip3 install flask_sqlalchemy
-
 COPY . .
+
+RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+ENTRYPOINT ['python']
+
+CMD ['app.py']
