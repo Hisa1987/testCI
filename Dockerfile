@@ -6,9 +6,9 @@ WORKDIR /app
 
 #RUN pip install -r requirements.txt
 
-RUN pip install flask
+RUN pip3 install flask
 
-RUN pip install flask_sqlalchemy
+RUN pip3 install flask_sqlalchemy
 
 COPY . .
 
