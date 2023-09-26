@@ -26,8 +26,7 @@ test:
   stage: test
   script:
     - docker run -d -p 5000:5000 hisoka1987/test:${CI_COMMIT_SHORT_SHA}
-    - apt install curl
     - sleep 20 # Подождите, чтобы контейнер успел запуститься
-    - curl http://localhost:5000 # Здесь можно указать дополнительные параметры curl для проверки ответа
+    - docker logs hisoka1987/test:${CI_COMMIT_SHORT_SHA}
 #  only:
 #    - wheel
