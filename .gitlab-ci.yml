@@ -16,7 +16,7 @@ stages:
 build:
   stage: build
   rules:
-      - if: '$CI_COMMIT_BRANCH == "master"'
+      - if: '$CI_COMMIT_BRANCH == "main"'
   script:
     - docker build -t hisoka1987/test:${CI_COMMIT_SHORT_SHA} .
     - docker login -u $USER -p $PASSWORD
